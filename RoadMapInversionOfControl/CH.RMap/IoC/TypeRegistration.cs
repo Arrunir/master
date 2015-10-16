@@ -17,32 +17,32 @@ namespace CH.RMap.IoC
 		public Container Container { get; }
 		public Type ClassType { get; }
 
-		public async Task<TypeRegistration> AsAsync(Type interfaceType)
+		public TypeRegistration As(Type interfaceType)
 		{
-			await IsNotNullAsync(interfaceType, nameof(interfaceType));
-			await IsInterfaceAsync(interfaceType).ConfigureAwait(false);
-			await Container.AddRegistration(ClassType, interfaceType).ConfigureAwait(false);
+			IsNotNull(interfaceType, nameof(interfaceType));
+			IsInterface(interfaceType);
+			Container.AddRegistration(ClassType, interfaceType);
 			return this;
 		}
 
-		public async Task<TypeRegistration> AsAsync(Type interfaceType, Func<TypeRegistration, Task<TypeRegistration>> continuation)
+		public TypeRegistration As(Type interfaceType, Func<TypeRegistration, Task<TypeRegistration>> continuation)
 		{
-			await AsAsync(interfaceType).ConfigureAwait(false);
-			await continuation(this).ConfigureAwait(false);
+			As(interfaceType);
+			continuation(this);
 			return this;
 		}
 
-		public async Task<TypeRegistration> AsAsync<TInterface>() where TInterface : class
+		public TypeRegistration As<TInterface>() where TInterface : class
 		{
-			await IsInterfaceAsync(typeof(TInterface)).ConfigureAwait(false);
-			await Container.AddRegistration(ClassType, typeof(TInterface)).ConfigureAwait(false);
+			IsInterface(typeof(TInterface));
+			Container.AddRegistration(ClassType, typeof(TInterface));
 			return this;
 		}
 
-		public async Task<TypeRegistration> AsAsync<TInterface>(Func<TypeRegistration, Task<TypeRegistration>> continuation) where TInterface : class
+		public TypeRegistration As<TInterface>(Func<TypeRegistration, Task<TypeRegistration>> continuation) where TInterface : class
 		{
-			await AsAsync<TInterface>().ConfigureAwait(false);
-			await continuation(this).ConfigureAwait(false);
+			As<TInterface>();
+			continuation(this);
 			return this;
 		}
 	}

@@ -15,50 +15,44 @@ namespace CH.RMap.IoC
 			_registrations = new ConcurrentDictionary<Type, Type>();
 		}
 
-		public async Task<TypeRegistration> RegisterTypeAsync(Type type)
+		public TypeRegistration RegisterType(Type type)
 		{
-			await IsNotNullAsync(type, nameof(type)).ConfigureAwait(false);
-			await IsClassAsync(type).ConfigureAwait(false);
-			return await Task.Run(() => new TypeRegistration(this, type)).ConfigureAwait(false);
+			IsNotNull(type, nameof(type));
+			IsClass(type);
+			return new TypeRegistration(this, type);
 		}
 
-		public async Task RegisterTypeAsync(Type type, Func<TypeRegistration, Task<TypeRegistration>> continuation)
+		public void RegisterType(Type type, Func<TypeRegistration, Task<TypeRegistration>> continuation)
 		{
-			var registration = await RegisterTypeAsync(type).ConfigureAwait(false);
-			await continuation(registration).ConfigureAwait(false);
+			var registration = RegisterType(type);
+			continuation(registration);
 		}
 
-		public async Task<TypeRegistration> RegisterTypeAsync<TType>() where TType : class
+		public TypeRegistration RegisterType<TType>() where TType : class
 		{
-			await IsClassAsync(typeof(TType)).ConfigureAwait(false);
-			return await Task.Run(() => new TypeRegistration(this, typeof(TType))).ConfigureAwait(false);
+			IsClass(typeof(TType));
+			return new TypeRegistration(this, typeof(TType));
 		}
 
-		public async Task RegisterTypeAsync<TType>(Func<TypeRegistration, Task<TypeRegistration>> continuation) where TType : class
+		public void RegisterTypey<TType>(Func<TypeRegistration, Task<TypeRegistration>> continuation) where TType : class
 		{
-			var registration = await RegisterTypeAsync<TType>().ConfigureAwait(false);
-			await continuation(registration).ConfigureAwait(false);
+			var registration = RegisterType<TType>();
+			continuation(registration);
 		}
 
-		internal async Task AddRegistration(Type classType, Type interfaceType)
+		internal void AddRegistration(Type classType, Type interfaceType)
 		{
-			await Task.Run(() => 
+			_registrations.AddOrUpdate(interfaceType, key => classType, (key, oldValue) => classType);
+		}
+
+		internal Type GetRegistration(Type type)
+		{
+			Type registration;
+			if(!_registrations.TryGetValue(type, out registration))
 			{
-				_registrations.AddOrUpdate(interfaceType, key => classType, (key, oldValue) => classType);
-			}).ConfigureAwait(false);
-		}
-
-		internal async Task<Type> GetRegistrationAsync(Type type)
-		{
-			return await Task.Run(() =>
-			{
-				Type registration;
-				if(!_registrations.TryGetValue(type, out registration))
-				{
-					throw new NoTypeRegistrationFoundException(type);
-				}
-				return registration;
-			}).ConfigureAwait(false);
+				throw new NoTypeRegistrationFoundException(type);
+			}
+			return registration;
 		}
 	}
 }

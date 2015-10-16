@@ -13,78 +13,113 @@ namespace CH.RMap.Test.IoC
 	public class ContainerTest
 	{
 		[TestMethod]
-		public async Task RegisterTypeTest()
+		public void RegisterTypeTest()
 		{
 			var container = new Container();
-			var registration = await container.RegisterTypeAsync(typeof(TestType));
+			var registration = container.RegisterType(typeof(TestType));
 
 			Assert.IsNotNull(registration);
 			Assert.AreEqual(typeof(TestType), registration.ClassType);
 		}
 
 		[TestMethod]
-		public async Task RegisterTypeGenericTest()
+		public void RegisterTypeGenericTest()
 		{
 			var container = new Container();
-			var registration = await container.RegisterTypeAsync<TestType>();
+			var registration = container.RegisterType<TestType>();
 
 			Assert.IsNotNull(registration);
 			Assert.AreEqual(typeof(TestType), registration.ClassType);
 		}
 
 		[TestMethod]
-		public async Task RegisterTypeNullTest()
+		public void RegisterTypeNullTest()
 		{
 			var container = new Container();
 
-			await ThrowsExceptionAsync<ArgumentNullException>(async () =>
+			try
 			{
-				var registration = await container.RegisterTypeAsync(null);
-			});
+				container.RegisterType(null);
+				Assert.Fail();
+      }
+			catch(ArgumentNullException)
+			{
+				return;
+			}
+
+			Assert.Fail();
 		}
 
 		[TestMethod]
-		public async Task RegisterTypeInterfaceTest()
+		public void RegisterTypeInterfaceTest()
 		{
 			var container = new Container();
 
-			await ThrowsExceptionAsync<NotAClassException>(async () =>
+			try
 			{
-				var registration = await container.RegisterTypeAsync(typeof(ITestType1));
-			});
+				container.RegisterType(typeof(ITestType1));
+        Assert.Fail();
+			}
+			catch (NotAClassException)
+			{
+				return;
+			}
+
+			Assert.Fail();
 		}
 
 		[TestMethod]
-		public async Task RegisterTypeInterfaceGenericTest()
+		public void RegisterTypeInterfaceGenericTest()
 		{
 			var container = new Container();
 
-			await ThrowsExceptionAsync<NotAClassException>(async () =>
+			try
 			{
-				var registration = await container.RegisterTypeAsync<ITestType1>();
-			});
+				container.RegisterType<ITestType1>();
+        Assert.Fail();
+			}
+			catch (NotAClassException)
+			{
+				return;
+			}
+
+			Assert.Fail();
 		}
 
 		[TestMethod]
-		public async Task RegisterTypeValueTypeTest()
+		public void RegisterTypeValueTypeTest()
 		{
 			var container = new Container();
 
-			await ThrowsExceptionAsync<NotAClassException>(async () =>
+			try
 			{
-				var registration = await container.RegisterTypeAsync(typeof(int));
-			});
+				container.RegisterType(typeof(int));
+				Assert.Fail();
+			}
+			catch (NotAClassException)
+			{
+				return;
+			}
+
+			Assert.Fail();
 		}
 
 		[TestMethod]
-		public async Task GetRegistrationAsyncNoTypeRegistrationFoundTest()
+		public void GetRegistrationAsyncNoTypeRegistrationFoundTest()
 		{
 			var container = new Container();
 
-			await ThrowsExceptionAsync<NoTypeRegistrationFoundException>(async () =>
+			try
 			{
-				var registration = await container.GetRegistrationAsync(typeof(ITestType1));
-			});
+				container.GetRegistration(typeof(ITestType1));
+				Assert.Fail();
+			}
+			catch (NoTypeRegistrationFoundException)
+			{
+				return;
+			}
+
+			Assert.Fail();
 		}
 	}
 }
