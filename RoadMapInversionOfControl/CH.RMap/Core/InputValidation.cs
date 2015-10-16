@@ -1,7 +1,6 @@
 ﻿using CH.RMap.Core.Exceptions;
 using System;
 using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 
 namespace CH.RMap.Core
 {
@@ -14,7 +13,7 @@ namespace CH.RMap.Core
 				throw new ArgumentNullException(memberName);
 			}
 		}
-		
+
 		public static void IsClass(Type type)
 		{
 			if (!type.IsClass)
@@ -29,6 +28,14 @@ namespace CH.RMap.Core
 			{
 				throw new NotAnInterfaceException(type);
 			}
+		}
+
+		public static void IsReferenceType(Type type)
+		{
+			if(!type.IsClass && !type.IsInterface)
+			{
+				throw new NotAReferenceTypeException(type);
+			} 
 		}
 	}
 }

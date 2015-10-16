@@ -1,11 +1,9 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Threading.Tasks;
-using static CH.RMap.Test.Utility.AsyncTestHelper;
+﻿using CH.RMap.Core.Exceptions;
 using CH.RMap.IoC;
-using CH.RMap.Core.Exceptions;
 using CH.RMap.IoC.Exceptions;
 using CH.RMap.Test.Utility.TestTypes;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace CH.RMap.Test.IoC
 {
@@ -19,7 +17,7 @@ namespace CH.RMap.Test.IoC
 			var registration = container.RegisterType(typeof(TestType));
 
 			Assert.IsNotNull(registration);
-			Assert.AreEqual(typeof(TestType), registration.ClassType);
+			Assert.AreEqual(typeof(TestType), registration.sourceType);
 		}
 
 		[TestMethod]
@@ -29,7 +27,7 @@ namespace CH.RMap.Test.IoC
 			var registration = container.RegisterType<TestType>();
 
 			Assert.IsNotNull(registration);
-			Assert.AreEqual(typeof(TestType), registration.ClassType);
+			Assert.AreEqual(typeof(TestType), registration.sourceType);
 		}
 
 		[TestMethod]
@@ -41,8 +39,8 @@ namespace CH.RMap.Test.IoC
 			{
 				container.RegisterType(null);
 				Assert.Fail();
-      }
-			catch(ArgumentNullException)
+			}
+			catch (ArgumentNullException)
 			{
 				return;
 			}
@@ -58,7 +56,7 @@ namespace CH.RMap.Test.IoC
 			try
 			{
 				container.RegisterType(typeof(ITestType1));
-        Assert.Fail();
+				Assert.Fail();
 			}
 			catch (NotAClassException)
 			{
@@ -76,7 +74,7 @@ namespace CH.RMap.Test.IoC
 			try
 			{
 				container.RegisterType<ITestType1>();
-        Assert.Fail();
+				Assert.Fail();
 			}
 			catch (NotAClassException)
 			{

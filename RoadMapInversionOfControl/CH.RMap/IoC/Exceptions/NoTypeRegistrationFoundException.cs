@@ -9,7 +9,7 @@ namespace CH.RMap.IoC.Exceptions
 		{
 		}
 
-		public NoTypeRegistrationFoundException(Type type, Exception innerException) : base (GetMessage(type), innerException)
+		public NoTypeRegistrationFoundException(Type type, Exception innerException) : base(GetMessage(type), innerException)
 		{
 		}
 

@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Exceptions\NotAReferenceTypeException.cs" />
     <Compile Include="Core\InputValidation.cs" />
     <Compile Include="Core\Exceptions\NotAnInterfaceException.cs" />
     <Compile Include="IoC\Container.cs" />
