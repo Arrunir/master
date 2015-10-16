@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22823.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMapTestUser", "RMapTestUser\RMapTestUser.csproj", "{930CFD04-7BA9-4FB6-9B55-8336A58776F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH.RMap.Test", "CH.RMap.Test\CH.RMap.Test.csproj", "{08DC9C2A-D396-4E6E-8CDC-2A86135E08F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH.RMap", "CH.RMap\CH.RMap.csproj", "{939FD254-D2C8-466E-B6A1-6E8219A87355}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH.RMap.Test.Utility", "CH.RMap.Test.Utility\CH.RMap.Test.Utility.csproj", "{DDE0C696-DD33-4351-A279-7DC781C449AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH.RMap.Test.Integration", "CH.RMap.Test.Integration\CH.RMap.Test.Integration.csproj", "{F997F5C7-3AFD-4254-A321-76A6A6284E8A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{930CFD04-7BA9-4FB6-9B55-8336A58776F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{930CFD04-7BA9-4FB6-9B55-8336A58776F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{930CFD04-7BA9-4FB6-9B55-8336A58776F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{930CFD04-7BA9-4FB6-9B55-8336A58776F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08DC9C2A-D396-4E6E-8CDC-2A86135E08F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08DC9C2A-D396-4E6E-8CDC-2A86135E08F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08DC9C2A-D396-4E6E-8CDC-2A86135E08F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08DC9C2A-D396-4E6E-8CDC-2A86135E08F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{939FD254-D2C8-466E-B6A1-6E8219A87355}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{939FD254-D2C8-466E-B6A1-6E8219A87355}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{939FD254-D2C8-466E-B6A1-6E8219A87355}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{939FD254-D2C8-466E-B6A1-6E8219A87355}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDE0C696-DD33-4351-A279-7DC781C449AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDE0C696-DD33-4351-A279-7DC781C449AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDE0C696-DD33-4351-A279-7DC781C449AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDE0C696-DD33-4351-A279-7DC781C449AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F997F5C7-3AFD-4254-A321-76A6A6284E8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F997F5C7-3AFD-4254-A321-76A6A6284E8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F997F5C7-3AFD-4254-A321-76A6A6284E8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F997F5C7-3AFD-4254-A321-76A6A6284E8A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://romanlang.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = RMapTestUser\\RMapTestUser.csproj
+		SccProjectName1 = RMapTestUser
+		SccLocalPath1 = RMapTestUser
+		SccProjectUniqueName2 = CH.RMap.Test\\CH.RMap.Test.csproj
+		SccProjectName2 = CH.RMap.Test
+		SccLocalPath2 = CH.RMap.Test
+		SccProjectUniqueName3 = CH.RMap\\CH.RMap.csproj
+		SccProjectName3 = CH.RMap
+		SccLocalPath3 = CH.RMap
+		SccProjectUniqueName4 = CH.RMap.Test.Utility\\CH.RMap.Test.Utility.csproj
+		SccProjectName4 = CH.RMap.Test.Utility
+		SccLocalPath4 = CH.RMap.Test.Utility
+		SccProjectUniqueName5 = CH.RMap.Test.Integration\\CH.RMap.Test.Integration.csproj
+		SccProjectName5 = CH.RMap.Test.Integration
+		SccLocalPath5 = CH.RMap.Test.Integration
+	EndGlobalSection
+EndGlobal
