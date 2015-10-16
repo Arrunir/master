@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CH.RMap.Test.Integration</RootNamespace>
     <AssemblyName>CH.RMap.Test.Integration</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -20,6 +20,7 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -58,9 +59,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CH.RMap.Test.Utility\CH.RMap.Test.Utility.csproj">
+    <ProjectReference Include="..\..\HogLibrary\CH.HogLib.Test.Utility\CH.HogLib.Test.Utility.csproj">
       <Project>{dde0c696-dd33-4351-a279-7dc781c449ad}</Project>
-      <Name>CH.RMap.Test.Utility</Name>
+      <Name>CH.HogLib.Test.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\HogLibrary\CH.HogLib\CH.HogLib.csproj">
+      <Project>{2d3fffa5-ae4a-404a-b8a5-c6782f367ded}</Project>
+      <Name>CH.HogLib</Name>
     </ProjectReference>
     <ProjectReference Include="..\CH.RMap\CH.RMap.csproj">
       <Project>{939fd254-d2c8-466e-b6a1-6e8219a87355}</Project>

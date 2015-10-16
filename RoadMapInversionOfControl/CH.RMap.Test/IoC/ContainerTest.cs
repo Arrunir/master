@@ -1,7 +1,7 @@
-﻿using CH.RMap.Core.Exceptions;
+﻿using CH.HogLib.Core.Exceptions;
+using CH.HogLib.Test.Utility.TestTypes;
 using CH.RMap.IoC;
 using CH.RMap.IoC.Exceptions;
-using CH.RMap.Test.Utility.TestTypes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
@@ -17,7 +17,7 @@ namespace CH.RMap.Test.IoC
 			var registration = container.RegisterType(typeof(TestType));
 
 			Assert.IsNotNull(registration);
-			Assert.AreEqual(typeof(TestType), registration.sourceType);
+			Assert.AreEqual(typeof(TestType), registration.SourceType);
 		}
 
 		[TestMethod]
@@ -27,7 +27,7 @@ namespace CH.RMap.Test.IoC
 			var registration = container.RegisterType<TestType>();
 
 			Assert.IsNotNull(registration);
-			Assert.AreEqual(typeof(TestType), registration.sourceType);
+			Assert.AreEqual(typeof(TestType), registration.SourceType);
 		}
 
 		[TestMethod]
@@ -109,7 +109,7 @@ namespace CH.RMap.Test.IoC
 
 			try
 			{
-				container.GetRegistration(typeof(ITestType1));
+				container.GetSourceType(typeof(ITestType1));
 				Assert.Fail();
 			}
 			catch (NoTypeRegistrationFoundException)

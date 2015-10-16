@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{08DC9C2A-D396-4E6E-8CDC-2A86135E08F7}</ProjectGuid>
+    <ProjectGuid>{BCD7595D-1E08-47FC-9BA2-A66E7E69DD7E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CH.RMap.Test</RootNamespace>
-    <AssemblyName>CH.RMap.Test</AssemblyName>
+    <RootNamespace>CH.HogLib.Test</RootNamespace>
+    <AssemblyName>CH.HogLib.Test</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -16,10 +16,6 @@
     <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -30,7 +26,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>6</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -41,10 +36,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FakeItEasy, Version=1.25.2.0, Culture=neutral, PublicKeyToken=eff28e2146d5fd2c, processorArchitecture=MSIL">
-      <HintPath>..\packages\FakeItEasy.1.25.2\lib\net40\FakeItEasy.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -60,27 +51,18 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="IoC\StartedRegistrationTest.cs" />
+    <Compile Include="Core\InputValidationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IoC\ContainerTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\HogLibrary\CH.HogLib.Test.Utility\CH.HogLib.Test.Utility.csproj">
+    <ProjectReference Include="..\CH.HogLib.Test.Utility\CH.HogLib.Test.Utility.csproj">
       <Project>{dde0c696-dd33-4351-a279-7dc781c449ad}</Project>
       <Name>CH.HogLib.Test.Utility</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\HogLibrary\CH.HogLib\CH.HogLib.csproj">
+    <ProjectReference Include="..\CH.HogLib\CH.HogLib.csproj">
       <Project>{2d3fffa5-ae4a-404a-b8a5-c6782f367ded}</Project>
       <Name>CH.HogLib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CH.RMap\CH.RMap.csproj">
-      <Project>{939fd254-d2c8-466e-b6a1-6e8219a87355}</Project>
-      <Name>CH.RMap</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

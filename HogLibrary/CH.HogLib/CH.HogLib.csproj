@@ -4,17 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{939FD254-D2C8-466E-B6A1-6E8219A87355}</ProjectGuid>
+    <ProjectGuid>{2D3FFFA5-AE4A-404A-B8A5-C6782F367DED}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CH.RMap</RootNamespace>
-    <AssemblyName>CH.RMap</AssemblyName>
+    <RootNamespace>CH.HogLib</RootNamespace>
+    <AssemblyName>CH.HogLib</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -25,7 +21,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>6</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -46,24 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IoC\Container.cs" />
-    <Compile Include="IoC\Exceptions\IncompleteRegistrationFoundException.cs" />
-    <Compile Include="IoC\Exceptions\NoTypeRegistrationFoundException.cs" />
-    <Compile Include="IoC\FinishedRegistration.cs" />
-    <Compile Include="IoC\RegistrationManagement\IRegistrationManager.cs" />
-    <Compile Include="IoC\RegistrationManagement\RegistrationManager.cs" />
-    <Compile Include="IoC\StartedRegistration.cs" />
+    <Compile Include="Core\Exceptions\NotAClassException.cs" />
+    <Compile Include="Core\Exceptions\NotAnInterfaceException.cs" />
+    <Compile Include="Core\Exceptions\NotAReferenceTypeException.cs" />
+    <Compile Include="Core\HashCode.cs" />
+    <Compile Include="Core\Validation\InputValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IoC\RegistrationManagement\IRegistrationFinisher.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\HogLibrary\CH.HogLib\CH.HogLib.csproj">
-      <Project>{2d3fffa5-ae4a-404a-b8a5-c6782f367ded}</Project>
-      <Name>CH.HogLib</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Core\Validation\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

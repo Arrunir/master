@@ -5,14 +5,14 @@ namespace CH.RMap.IoC.Exceptions
 	[Serializable]
 	internal class NoTypeRegistrationFoundException : Exception
 	{
-		public NoTypeRegistrationFoundException(Type type) : base(GetMessage(type))
+		public NoTypeRegistrationFoundException(Type targetType) : base(GetMessage(targetType))
 		{
 		}
 
-		public NoTypeRegistrationFoundException(Type type, Exception innerException) : base(GetMessage(type), innerException)
+		public NoTypeRegistrationFoundException(Type targetType, Exception innerException) : base(GetMessage(targetType), innerException)
 		{
 		}
 
-		private static string GetMessage(Type type) => $"No registration for the type '{type.FullName}' found";
+		private static string GetMessage(Type targetType) => $"No registration for the type '{targetType.FullName}' found";
 	}
 }

@@ -1,5 +1,5 @@
-﻿using CH.RMap.IoC;
-using CH.RMap.Test.Utility.TestTypes;
+﻿using CH.HogLib.Test.Utility.TestTypes;
+using CH.RMap.IoC;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CH.RMap.Test.Integration.IoC
@@ -12,14 +12,13 @@ namespace CH.RMap.Test.Integration.IoC
 		{
 			var container = new Container();
 
-			container.RegisterType<TestType>()
-				.As<ITestType1>()
-				.As<ITestType2>()
-				.As<ITestType3>();
+			container.RegisterType<TestType>().As<ITestType1>();
+			container.RegisterType<TestType>().As<ITestType2>();
+			container.RegisterType<TestType>().As<ITestType3>();
 
-			Assert.AreEqual(typeof(TestType), container.GetRegistration(typeof(ITestType1)));
-			Assert.AreEqual(typeof(TestType), container.GetRegistration(typeof(ITestType2)));
-			Assert.AreEqual(typeof(TestType), container.GetRegistration(typeof(ITestType3)));
+			Assert.AreEqual(typeof(TestType), container.GetSourceType(typeof(ITestType1)));
+			Assert.AreEqual(typeof(TestType), container.GetSourceType(typeof(ITestType2)));
+			Assert.AreEqual(typeof(TestType), container.GetSourceType(typeof(ITestType3)));
 		}
 	}
 }

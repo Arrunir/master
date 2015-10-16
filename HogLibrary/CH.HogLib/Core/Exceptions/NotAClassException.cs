@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CH.RMap.Core.Exceptions
+namespace CH.HogLib.Core.Exceptions
 {
 	[Serializable]
 	public class NotAClassException : Exception

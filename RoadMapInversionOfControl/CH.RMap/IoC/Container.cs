@@ -1,45 +1,35 @@
-﻿using CH.RMap.IoC.Exceptions;
+﻿using CH.RMap.IoC.RegistrationManagement;
 using System;
-using System.Collections.Concurrent;
-using static CH.RMap.Core.InputValidation;
+using static CH.HogLib.Core.Validation.InputValidation;
 
 namespace CH.RMap.IoC
 {
 	public class Container
 	{
-		private ConcurrentDictionary<Type, Type> _registrations;
+		private IRegistrationManager _registrationManager;
 
 		public Container()
 		{
-			_registrations = new ConcurrentDictionary<Type, Type>();
+			_registrationManager = new RegistrationManager();
 		}
 
-		public TypeRegistration RegisterType(Type type)
+		public StartedRegistration RegisterType(Type sourceType)
 		{
-			IsNotNull(type, nameof(type));
-			IsClass(type);
-			return new TypeRegistration(this, type);
+			IsNotNull(sourceType, nameof(sourceType));
+			IsClass(sourceType);
+			return _registrationManager.StartRegistration(sourceType);
 		}
 
-		public TypeRegistration RegisterType<TType>() where TType : class
+		public StartedRegistration RegisterType<TType>() where TType : class
 		{
-			IsClass(typeof(TType));
-			return new TypeRegistration(this, typeof(TType));
+			var sourceType = typeof(TType);
+			IsClass(sourceType);
+			return _registrationManager.StartRegistration(sourceType);
 		}
 
-		internal void AddRegistration(Type classType, Type interfaceType)
+		internal Type GetSourceType(Type targetType)
 		{
-			_registrations.AddOrUpdate(interfaceType, key => classType, (key, oldValue) => classType);
-		}
-
-		internal Type GetRegistration(Type type)
-		{
-			Type registration;
-			if (!_registrations.TryGetValue(type, out registration))
-			{
-				throw new NoTypeRegistrationFoundException(type);
-			}
-			return registration;
+			return _registrationManager.GetSourceType(targetType);
 		}
 	}
 }
