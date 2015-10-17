@@ -4,7 +4,7 @@ using static CH.HogLib.Core.Validation.InputValidation;
 
 namespace CH.RMap.IoC.Registrations
 {
-	public class StartedRegistration : IStartedRegistration
+	public sealed class StartedRegistration : IStartedRegistration
 	{
 		private IRegistrationFinisher _registrationManager;
 

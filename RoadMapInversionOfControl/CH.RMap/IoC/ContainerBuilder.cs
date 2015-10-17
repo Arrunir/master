@@ -5,7 +5,7 @@ using static CH.HogLib.Core.Validation.InputValidation;
 
 namespace CH.RMap.IoC
 {
-	internal class ContainerBuilder
+	public sealed class ContainerBuilder
 	{
 		private IContainer _registrationManager;
 
