@@ -27,10 +27,5 @@ namespace CH.RMap.IoC
 			IsClass(sourceType);
 			return _registrationManager.StartRegistration(sourceType);
 		}
-
-		internal Type GetSourceType(Type targetType)
-		{
-			return _registrationManager.GetSourceType(targetType);
-		}
 	}
 }

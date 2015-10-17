@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CH.RMap.IoC.Registrations.RegistrationManagement
 {
-	internal interface IContainer : IRegistrationFinisher
+	public interface IContainer : IRegistrationFinisher
 	{
 		StartedRegistration StartRegistration(Type t);
-		Type GetSourceType(Type targetType);
+		IEnumerable<Type> GetSourceTypes(Type targetType);
 	}
 }

@@ -62,6 +62,9 @@
     <Compile Include="AsyncTestHelper.cs" />
     <Compile Include="TestTypes\ITestType4.cs" />
     <Compile Include="TestTypes\TestType.cs" />
+    <Compile Include="TestTypes\TestType4.cs" />
+    <Compile Include="TestTypes\TestTypeWithArgument.cs" />
+    <Compile Include="TestTypes\TestTypeWithArguments.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

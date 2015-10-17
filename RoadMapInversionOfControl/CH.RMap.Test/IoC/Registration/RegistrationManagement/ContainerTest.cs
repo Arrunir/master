@@ -5,6 +5,7 @@ using CH.RMap.IoC.Registrations.RegistrationManagement;
 using FakeItEasy;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Linq;
 
 namespace CH.RMap.Test.IoC.Registration.RegistrationManagement
 {
@@ -28,7 +29,10 @@ namespace CH.RMap.Test.IoC.Registration.RegistrationManagement
 
 			container.FinishRegistration(typeof(ITestType1), registration);
 
-			Assert.AreEqual(typeof(TestType), container.GetSourceType(typeof(ITestType1)));
+			var sourceTypes = container.GetSourceTypes(typeof(ITestType1));
+
+			Assert.AreEqual(1, sourceTypes.Count());
+			Assert.AreEqual(typeof(TestType), sourceTypes.First());
 		}
 
 		[TestMethod]

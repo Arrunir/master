@@ -1,5 +1,7 @@
 ﻿using CH.HogLib.Core.Exceptions;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace CH.HogLib.Core.Validation
@@ -11,6 +13,19 @@ namespace CH.HogLib.Core.Validation
 			if (o == null)
 			{
 				throw new ArgumentNullException(memberName);
+			}
+		}
+
+		public static void IsNotNull<T>(IEnumerable<T> enumerable, [CallerMemberName]string memberName = null)
+		{
+			if (enumerable == null)
+			{
+				throw new ArgumentNullException(memberName);
+			}
+
+			if (enumerable.Any(i => i == null))
+			{
+				throw new ArgumentNullException($"{memberName} contains null-elements.");
 			}
 		}
 

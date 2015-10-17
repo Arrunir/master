@@ -101,23 +101,5 @@ namespace CH.RMap.Test.IoC
 
 			Assert.Fail();
 		}
-
-		[TestMethod]
-		public void GetRegistrationAsyncNoTypeRegistrationFoundTest()
-		{
-			var container = new ContainerBuilder();
-
-			try
-			{
-				container.GetSourceType(typeof(ITestType1));
-				Assert.Fail();
-			}
-			catch (NoTypeRegistrationFoundException)
-			{
-				return;
-			}
-
-			Assert.Fail();
-		}
 	}
 }

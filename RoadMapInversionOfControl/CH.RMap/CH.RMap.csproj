@@ -46,9 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IoC\Activation\ParameterCollection.cs" />
+    <Compile Include="IoC\Activation\RegistrationActivator.cs" />
+    <Compile Include="IoC\Activation\Resolver.cs" />
     <Compile Include="IoC\ContainerBuilder.cs" />
     <Compile Include="IoC\Exceptions\IncompleteRegistrationFoundException.cs" />
     <Compile Include="IoC\Exceptions\NoTypeRegistrationFoundException.cs" />
+    <Compile Include="IoC\Exceptions\ResolverException.cs" />
     <Compile Include="IoC\Registrations\FinishedRegistration.cs" />
     <Compile Include="IoC\Registrations\IStartedRegistration.cs" />
     <Compile Include="IoC\Registrations\RegistrationManagement\IContainer.cs" />
@@ -65,7 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\Validation\" />
-    <Folder Include="IoC\Activation\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

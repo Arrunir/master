@@ -39,12 +39,12 @@ namespace CH.RMap.IoC.Registrations.RegistrationManagement
 			return registration;
 		}
 
-		public Type GetSourceType(Type targetType)
+		public IEnumerable<Type> GetSourceTypes(Type targetType)
 		{
 			ValidateAllRegistrationsFinished();
 			if (_finishedRegistrations.Any(f => f.Target.Equals(targetType)))
 			{
-				return _finishedRegistrations.Single(f => f.Target == targetType).Source;
+				return _finishedRegistrations.Where(f => f.Target == targetType).Select(f => f.Source);
 			}
 			throw new NoTypeRegistrationFoundException(targetType);
 		}

@@ -60,6 +60,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="IoC\Activation\RegistrationActivatorTest.cs" />
+    <Compile Include="IoC\Activation\ResolverTest.cs" />
     <Compile Include="IoC\Registration\RegistrationManagement\ContainerTest.cs" />
     <Compile Include="IoC\Registration\StartedRegistrationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

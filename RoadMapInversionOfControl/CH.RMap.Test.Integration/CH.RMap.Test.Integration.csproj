@@ -55,7 +55,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="IoC\ContainerBuilderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -71,6 +70,9 @@
       <Project>{939fd254-d2c8-466e-b6a1-6e8219a87355}</Project>
       <Name>CH.RMap</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="IoC\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
