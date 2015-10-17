@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH.HogLib.Test", "..\HogLib
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH.HogLib.Test.Utility", "..\HogLibrary\CH.HogLib.Test.Utility\CH.HogLib.Test.Utility.csproj", "{DDE0C696-DD33-4351-A279-7DC781C449AD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HogLib", "HogLib", "{99396E84-5A4B-405D-9E3C-C7F1B50DEC3A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2D3FFFA5-AE4A-404A-B8A5-C6782F367DED} = {99396E84-5A4B-405D-9E3C-C7F1B50DEC3A}
+		{BCD7595D-1E08-47FC-9BA2-A66E7E69DD7E} = {99396E84-5A4B-405D-9E3C-C7F1B50DEC3A}
+		{DDE0C696-DD33-4351-A279-7DC781C449AD} = {99396E84-5A4B-405D-9E3C-C7F1B50DEC3A}
 	EndGlobalSection
 EndGlobal

@@ -1,10 +1,10 @@
-﻿using CH.RMap.IoC.RegistrationManagement;
+﻿using CH.RMap.IoC.Registrations.RegistrationManagement;
 using System;
 using static CH.HogLib.Core.Validation.InputValidation;
 
-namespace CH.RMap.IoC
+namespace CH.RMap.IoC.Registrations
 {
-	public class StartedRegistration
+	public class StartedRegistration : IStartedRegistration
 	{
 		private IRegistrationFinisher _registrationManager;
 

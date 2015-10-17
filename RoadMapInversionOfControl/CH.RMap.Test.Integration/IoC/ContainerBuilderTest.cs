@@ -5,12 +5,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace CH.RMap.Test.Integration.IoC
 {
 	[TestClass]
-	public class ContainerTest
+	public class ContainerBuilderTest
 	{
 		[TestMethod]
 		public void RegisterTypeAsInterfaceTest()
 		{
-			var container = new Container();
+			var container = new ContainerBuilder();
 
 			container.RegisterType<TestType>().As<ITestType1>();
 			container.RegisterType<TestType>().As<ITestType2>();

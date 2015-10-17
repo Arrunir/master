@@ -60,6 +60,7 @@
     <Compile Include="TestTypes\ITestType3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AsyncTestHelper.cs" />
+    <Compile Include="TestTypes\ITestType4.cs" />
     <Compile Include="TestTypes\TestType.cs" />
   </ItemGroup>
   <Choose>

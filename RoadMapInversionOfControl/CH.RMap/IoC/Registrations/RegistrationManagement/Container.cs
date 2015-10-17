@@ -4,22 +4,23 @@ using System.Collections.Generic;
 using System.Linq;
 using static CH.HogLib.Core.Validation.InputValidation;
 
-namespace CH.RMap.IoC.RegistrationManagement
+namespace CH.RMap.IoC.Registrations.RegistrationManagement
 {
-	internal class RegistrationManager : IRegistrationManager, IRegistrationFinisher
+	internal class Container : IContainer, IRegistrationFinisher
 	{
-		private ICollection<StartedRegistration> _startedRegistrations;
+		private ICollection<IStartedRegistration> _startedRegistrations;
 		private HashSet<FinishedRegistration> _finishedRegistrations;
 
-		internal RegistrationManager()
+		internal Container()
 		{
-			_startedRegistrations = new List<StartedRegistration>();
+			_startedRegistrations = new List<IStartedRegistration>();
 			_finishedRegistrations = new HashSet<FinishedRegistration>();
 		}
 
-		public void FinishRegistration(Type targetType, StartedRegistration subject)
+		public void FinishRegistration(Type targetType, IStartedRegistration subject)
 		{
 			IsReferenceType(targetType);
+			ValidateIsTargetAssignableFromSource(targetType, subject.SourceType);
 
 			if (_startedRegistrations.Contains(subject))
 			{
@@ -54,6 +55,14 @@ namespace CH.RMap.IoC.RegistrationManagement
 			if (unfinishedRegistration != null)
 			{
 				throw new IncompleteRegistrationFoundException(unfinishedRegistration);
+			}
+		}
+
+		private void ValidateIsTargetAssignableFromSource(Type target, Type source)
+		{
+			if (!target.IsAssignableFrom(source))
+			{
+				throw new InvalidOperationException($"Source type '{source.FullName}' is not assignable to '{target.FullName}'");
 			}
 		}
 	}

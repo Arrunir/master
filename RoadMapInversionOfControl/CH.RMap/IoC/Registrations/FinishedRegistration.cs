@@ -1,7 +1,7 @@
 ﻿using CH.HogLib.Core;
 using System;
 
-namespace CH.RMap.IoC
+namespace CH.RMap.IoC.Registrations
 {
 	internal class FinishedRegistration
 	{

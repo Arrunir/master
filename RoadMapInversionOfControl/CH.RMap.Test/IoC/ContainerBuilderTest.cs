@@ -8,12 +8,12 @@ using System;
 namespace CH.RMap.Test.IoC
 {
 	[TestClass]
-	public class ContainerTest
+	public class ContainerBuilderTest
 	{
 		[TestMethod]
 		public void RegisterTypeTest()
 		{
-			var container = new Container();
+			var container = new ContainerBuilder();
 			var registration = container.RegisterType(typeof(TestType));
 
 			Assert.IsNotNull(registration);
@@ -23,7 +23,7 @@ namespace CH.RMap.Test.IoC
 		[TestMethod]
 		public void RegisterTypeGenericTest()
 		{
-			var container = new Container();
+			var container = new ContainerBuilder();
 			var registration = container.RegisterType<TestType>();
 
 			Assert.IsNotNull(registration);
@@ -33,7 +33,7 @@ namespace CH.RMap.Test.IoC
 		[TestMethod]
 		public void RegisterTypeNullTest()
 		{
-			var container = new Container();
+			var container = new ContainerBuilder();
 
 			try
 			{
@@ -51,7 +51,7 @@ namespace CH.RMap.Test.IoC
 		[TestMethod]
 		public void RegisterTypeInterfaceTest()
 		{
-			var container = new Container();
+			var container = new ContainerBuilder();
 
 			try
 			{
@@ -69,7 +69,7 @@ namespace CH.RMap.Test.IoC
 		[TestMethod]
 		public void RegisterTypeInterfaceGenericTest()
 		{
-			var container = new Container();
+			var container = new ContainerBuilder();
 
 			try
 			{
@@ -87,7 +87,7 @@ namespace CH.RMap.Test.IoC
 		[TestMethod]
 		public void RegisterTypeValueTypeTest()
 		{
-			var container = new Container();
+			var container = new ContainerBuilder();
 
 			try
 			{
@@ -105,7 +105,7 @@ namespace CH.RMap.Test.IoC
 		[TestMethod]
 		public void GetRegistrationAsyncNoTypeRegistrationFoundTest()
 		{
-			var container = new Container();
+			var container = new ContainerBuilder();
 
 			try
 			{

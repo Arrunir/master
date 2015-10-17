@@ -46,15 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IoC\Container.cs" />
+    <Compile Include="IoC\ContainerBuilder.cs" />
     <Compile Include="IoC\Exceptions\IncompleteRegistrationFoundException.cs" />
     <Compile Include="IoC\Exceptions\NoTypeRegistrationFoundException.cs" />
-    <Compile Include="IoC\FinishedRegistration.cs" />
-    <Compile Include="IoC\RegistrationManagement\IRegistrationManager.cs" />
-    <Compile Include="IoC\RegistrationManagement\RegistrationManager.cs" />
-    <Compile Include="IoC\StartedRegistration.cs" />
+    <Compile Include="IoC\Registrations\FinishedRegistration.cs" />
+    <Compile Include="IoC\Registrations\IStartedRegistration.cs" />
+    <Compile Include="IoC\Registrations\RegistrationManagement\IContainer.cs" />
+    <Compile Include="IoC\Registrations\RegistrationManagement\Container.cs" />
+    <Compile Include="IoC\Registrations\StartedRegistration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IoC\RegistrationManagement\IRegistrationFinisher.cs" />
+    <Compile Include="IoC\Registrations\RegistrationManagement\IRegistrationFinisher.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\HogLibrary\CH.HogLib\CH.HogLib.csproj">
@@ -64,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\Validation\" />
+    <Folder Include="IoC\Activation\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

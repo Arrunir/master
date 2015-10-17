@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace CH.RMap.IoC.RegistrationManagement
+namespace CH.RMap.IoC.Registrations.RegistrationManagement
 {
-	internal interface IRegistrationManager : IRegistrationFinisher
+	internal interface IContainer : IRegistrationFinisher
 	{
 		StartedRegistration StartRegistration(Type t);
 		Type GetSourceType(Type targetType);

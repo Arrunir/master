@@ -1,12 +1,12 @@
 ﻿using CH.HogLib.Core.Exceptions;
 using CH.HogLib.Test.Utility.TestTypes;
-using CH.RMap.IoC;
-using CH.RMap.IoC.RegistrationManagement;
+using CH.RMap.IoC.Registrations;
+using CH.RMap.IoC.Registrations.RegistrationManagement;
 using FakeItEasy;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace CH.RMap.Test.IoC
+namespace CH.RMap.Test.IoC.Registration
 {
 	[TestClass]
 	public class StartedRegistrationTest
@@ -58,7 +58,7 @@ namespace CH.RMap.Test.IoC
 		{
 			try
 			{
-				new StartedRegistration(new RegistrationManager(), null);
+				new StartedRegistration(new Container(), null);
 				Assert.Fail();
 			}
 			catch (ArgumentNullException)
