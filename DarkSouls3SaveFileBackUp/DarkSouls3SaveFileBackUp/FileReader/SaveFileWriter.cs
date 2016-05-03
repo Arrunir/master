@@ -24,10 +24,20 @@ namespace DarkSouls3SaveFileBackUp.FileReader
 
         private void CreateBackUpFulder(string saveFolder, string backUpFolderName)
         {
-            var backUpFolders = Directory.GetDirectories(saveFolder);
+            var backUpFolders = Directory.GetDirectories(saveFolder).OrderBy(f => f).ToList();
             if(!backUpFolders.Contains(saveFolder))
             {
                 Directory.CreateDirectory(Path.Combine(saveFolder, backUpFolderName));
+            }
+            if(backUpFolders.Count >= 5)
+            {
+                var directory = backUpFolders.First();
+                var files = Directory.GetFiles(directory);
+                foreach(var file in files)
+                {
+                    File.Delete(file);
+                }
+                Directory.Delete(directory);
             }
         }
    }

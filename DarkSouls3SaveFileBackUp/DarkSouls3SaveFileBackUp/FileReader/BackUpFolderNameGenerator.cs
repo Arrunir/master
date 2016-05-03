@@ -6,7 +6,7 @@ namespace DarkSouls3SaveFileBackUp.FileReader
     {
         public static string GenerateFolderName()
         {
-            var folderName = string.Format("{0:yyyyMMdd}", DateTime.Today);
+            var folderName = string.Format("{0:yyyyMMddHHmmss}", DateTime.Now);
             return folderName;
         }
     }

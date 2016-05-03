@@ -40,7 +40,7 @@ namespace DarkSouls3SaveFileBackUp.FileReader
                 var saveDatafileContent = ReadSaveDataFile(saveFileName);
                 _lastBackUpPath = _saveFileWriter.WriteSaveFile(saveDatafileContent, Path.GetFileName(saveFileName), backUpFolder);
             }
-            catch(IOException)
+            catch(IOException ex)
             {
                 return false;
             }
