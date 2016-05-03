@@ -4,9 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DarkSouls3SaveFileBackUp"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Dark Souls III, Save Data BackUp Utility" DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        mc:Ignorable="d" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button x:Name="StartButton" Content="Start" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" AutomationProperties.Name="StartButton" Click="StartButton_Click"/>
+            <Button x:Name="StopButton" Content="Stop" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Width="75" Grid.Column="1" AutomationProperties.Name="StopButton" Click="StopButton_Click"/>
+            <TextBlock Text="Backup every" Margin="10" />
+            <TextBox Margin="10" Width="100" MaxWidth="100" Text="{Binding SaveIntervall}" />
+            <TextBlock Text="minutes." Margin="10" />
+        </StackPanel>
+        <CheckBox Grid.Row="1" Content="Run on startup" Margin="2" IsChecked="{Binding RunOnStartUp}" />
+        <TextBox x:Name="InfoText" Grid.Row="2" Margin="2" TextWrapping="Wrap" IsEnabled="False" Height="45" />
     </Grid>
 </Window>

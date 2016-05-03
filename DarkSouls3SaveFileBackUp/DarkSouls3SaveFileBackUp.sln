@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DarkSouls3SaveFileBackUp", "DarkSouls3SaveFileBackUp\DarkSouls3SaveFileBackUp.csproj", "{1654F36B-BECF-4F56-A24F-87CDE44B3CBB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileLocker", "..\FileLocker\FileLocker.csproj", "{7F276AF9-EFD2-49F4-B0CC-8AECFFF8A867}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1654F36B-BECF-4F56-A24F-87CDE44B3CBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1654F36B-BECF-4F56-A24F-87CDE44B3CBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1654F36B-BECF-4F56-A24F-87CDE44B3CBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F276AF9-EFD2-49F4-B0CC-8AECFFF8A867}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F276AF9-EFD2-49F4-B0CC-8AECFFF8A867}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F276AF9-EFD2-49F4-B0CC-8AECFFF8A867}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F276AF9-EFD2-49F4-B0CC-8AECFFF8A867}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
